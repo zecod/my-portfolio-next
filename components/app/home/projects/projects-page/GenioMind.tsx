@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Clock1 } from "lucide-react";
+import Image from "next/image";
 import {
   SiReact,
   SiMongodb,
@@ -31,9 +32,12 @@ export const Genio = () => {
 
       {/* Project Image */}
       <div className="mt-5">
-        <img
+        <Image
           src="https://snjzgrnhlqngthyxcutc.supabase.co/storage/v1/object/public/porfolio/img/genio-mind.png"
-          className="aspect-video border rounded-lg shadow-lg"
+          className="aspect-video border rounded-lg shadow-lg w-full"
+          alt="Genio Mind"
+          width={500}
+          height={600}
         />
       </div>
 

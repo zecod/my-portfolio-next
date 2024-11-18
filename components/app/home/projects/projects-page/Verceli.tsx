@@ -25,6 +25,7 @@ import {
 import { cn } from "@/lib/utils";
 import { AnimatedBeam } from "@/components/ui/animated-beam";
 import Link from "next/link";
+import Image from "next/image";
 
 const Circle = forwardRef<
   HTMLDivElement,
@@ -135,9 +136,12 @@ const Verceli = () => {
 
       {/* Project Image */}
       <div className="mt-5">
-        <img
+        <Image
           src="https://snjzgrnhlqngthyxcutc.supabase.co/storage/v1/object/public/porfolio/img/verceli-lights.png"
-          className="aspect-video border rounded-lg shadow-lg"
+          className="aspect-video border rounded-lg shadow-lg w-full"
+          alt="Verceli Project"
+          width={500}
+          height={600}
         />
       </div>
 

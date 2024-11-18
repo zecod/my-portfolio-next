@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Clock1, Play } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 import {
@@ -30,10 +31,12 @@ export const RonaLi = () => {
 
       {/* Project Image */}
       <div className="mt-5">
-        <img
+        <Image
           src="https://snjzgrnhlqngthyxcutc.supabase.co/storage/v1/object/public/porfolio/img/rona-li.png"
-          className="aspect-video border rounded-lg shadow-lg"
+          className="aspect-video border rounded-lg shadow-lg w-full"
           alt="Rona Li Project"
+          width={500}
+          height={600}
         />
       </div>
 

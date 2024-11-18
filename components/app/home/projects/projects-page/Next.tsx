@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Clock1, ExternalLink } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   SiReact,
@@ -28,10 +29,12 @@ export const NextWeb = () => {
 
       {/* Project Image */}
       <div className="mt-5">
-        <img
+        <Image
           src="https://snjzgrnhlqngthyxcutc.supabase.co/storage/v1/object/public/porfolio/img/NextWeb.png"
-          className="aspect-video border rounded-lg shadow-lg"
+          className="aspect-video border rounded-lg shadow-lg w-full"
           alt="Next Web Project"
+          width={500}
+          height={600}
         />
       </div>
 

@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Verceli } from "@/components/app/home/projects/projects-page/Verceli";
 import { Genio } from "@/components/app/home/projects/projects-page/GenioMind";
 import { NextWeb } from "@/components/app/home/projects/projects-page/Next";
 import { RonaLi } from "@/components/app/home/projects/projects-page/RonaLi";
+import { use } from "react";
 
 const projectDetails = {
   verceli: <Verceli />,
@@ -13,16 +14,21 @@ const projectDetails = {
   rona: <RonaLi />,
 };
 
-export default function Page({ params }: { params: { id: string } }) {
-  const project = projectDetails[params.id as keyof typeof projectDetails];
+export default function Page({ params }: { params: Promise<{ id: string }> }) {
+  const unwrappedParams = use(params); // Unwrap the promise
+  const [redirecting, setRedirecting] = useState(false);
 
-  if (!project) {
-    React.useEffect(() => {
+  const project =
+    projectDetails[unwrappedParams.id as keyof typeof projectDetails];
+
+  useEffect(() => {
+    if (!project) {
+      setRedirecting(true);
       window.location.assign("/404");
-    }, []);
+    }
+  }, [project]);
 
-    return null;
-  }
+  if (redirecting) return null;
 
   return <div>{project}</div>;
 }
