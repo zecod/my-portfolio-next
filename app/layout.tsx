@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/app/dark-theme";
 import { Docks } from "@/components/app/home/Dock";
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -88,10 +89,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
-
           <Docks />
         </ThemeProvider>
       </body>
+      <Analytics />
     </html>
   );
 }
