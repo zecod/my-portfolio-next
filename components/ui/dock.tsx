@@ -39,33 +39,30 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     },
     ref
   ) => {
-    const mouseX = useMotionValue<number>(Infinity); // Specify type explicitly
+    const mouseX = useMotionValue<number>(Infinity); // Hook must always run unconditionally
 
-    const renderChildren = () => {
-      return React.Children.map(children, (child) => {
-        if (React.isValidElement(child)) {
-          // Explicitly cast child to include the additional props
-          return React.cloneElement(
-            child as React.ReactElement<{
-              mouseX: MotionValue<number>;
-              magnification: number;
-              distance: number;
-            }>,
-            {
-              mouseX,
-              magnification,
-              distance,
-            }
-          );
-        }
-        return child;
-      });
-    };
+    const renderChildren = React.Children.map(children, (child) => {
+      if (React.isValidElement(child)) {
+        return React.cloneElement(
+          child as React.ReactElement<{
+            mouseX: MotionValue<number>;
+            magnification: number;
+            distance: number;
+          }>,
+          {
+            mouseX,
+            magnification,
+            distance,
+          }
+        );
+      }
+      return child;
+    });
 
     return (
       <motion.div
         ref={ref}
-        onMouseMove={(e) => mouseX.set(e.pageX)} // Mouse position must be a number
+        onMouseMove={(e) => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}
         {...props}
         className={cn(dockVariants({ className }), {
@@ -74,7 +71,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
           "items-end": direction === "bottom",
         })}
       >
-        {renderChildren()}
+        {renderChildren}
       </motion.div>
     );
   }
@@ -85,10 +82,9 @@ Dock.displayName = "Dock";
 export interface DockIconProps {
   magnification?: number;
   distance?: number;
-  mouseX?: MotionValue<number>; // Ensure type matches useMotionValue<number>
+  mouseX?: MotionValue<number>;
   className?: string;
   children?: React.ReactNode;
-  props?: PropsWithChildren;
 }
 
 const DockIcon = ({
@@ -101,6 +97,7 @@ const DockIcon = ({
 }: DockIconProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
+  // Calculate distance from the mouse to the center of the element
   const distanceCalc = useTransform(
     mouseX || useMotionValue(0),
     (val: number) => {
@@ -109,6 +106,7 @@ const DockIcon = ({
     }
   );
 
+  // Dynamic width based on mouse distance
   const widthSync = useTransform(
     distanceCalc,
     [-distance, 0, distance],
