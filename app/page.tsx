@@ -1,4 +1,3 @@
-import { Docks } from "@/components/app/home/Dock";
 import { Projects } from "@/components/app/home/projects/Projects";
 import { About } from "@/components/app/home/sections/About";
 import { Experience } from "@/components/app/home/sections/Expirence";
