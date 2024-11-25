@@ -6,6 +6,7 @@ import {
   SiLinux,
   SiMongodb,
   SiNodedotjs,
+  SiNextdotjs,
   SiPostgresql,
   SiReact,
   SiSupabase,
@@ -32,6 +33,7 @@ export function Stack() {
         </div>
         <div className="flex gap-6 mt-4 flex-wrap">
           <SiPostgresql size={32} className="text-[#336791]" />
+          <SiNextdotjs size={32} />
           <SiTypescript size={32} className="text-[#3178C6]" />
           <SiGithub size={32} />
           <SiReact size={32} className="text-[#61DAFB]" />

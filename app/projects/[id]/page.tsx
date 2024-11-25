@@ -15,7 +15,7 @@ const projectDetails = {
 };
 
 export default function Page({ params }: { params: Promise<{ id: string }> }) {
-  const unwrappedParams = use(params); // Unwrap the promise
+  const unwrappedParams = use(params);
   const [redirecting, setRedirecting] = useState(false);
 
   const project =
