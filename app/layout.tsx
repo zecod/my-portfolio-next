@@ -93,6 +93,15 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
       <Analytics />
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KZJ6ZHDE2Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KZJ6ZHDE2Z');
+</script>
     </html>
   );
 }
