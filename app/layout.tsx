@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/app/dark-theme";
 import { Docks } from "@/components/app/home/Dock";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -93,15 +94,18 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
       <Analytics />
-      <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KZJ6ZHDE2Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-KZJ6ZHDE2Z');
-</script>
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-KZJ6ZHDE2Z"
+      />
+      <Script id="google-analytics">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-KZJ6ZHDE2Z');
+          `}
+      </Script>
     </html>
   );
 }
