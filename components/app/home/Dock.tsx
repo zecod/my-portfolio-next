@@ -152,7 +152,7 @@ export function Docks() {
                   variant={"ghost"}
                   className="hover:bg-transparent"
                   onClick={toggleTheme}
-									 aria-label="Toggle Settings">
+									 aria-label="Toggle Settings"
                 >
                   {theme == "light" ? <Moon size={18} /> : <Sun size={18} />}
                 </Button>
