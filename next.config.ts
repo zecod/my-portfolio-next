@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import createMDX from '@next/mdx'
 
 const nextConfig: NextConfig = {
   images: {
@@ -14,10 +13,6 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx']
 };
 
-
-const withMDX = createMDX(});
-
-export default withMDX(nextConfig);
+export default nextConfig;
