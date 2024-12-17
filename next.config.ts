@@ -1,6 +1,5 @@
 import type { NextConfig } from "next";
 import createMDX from '@next/mdx'
-import remarkGfm from 'remark-gfm'
 
 const nextConfig: NextConfig = {
   images: {
@@ -19,12 +18,6 @@ const nextConfig: NextConfig = {
 };
 
 
-const withMDX = createMDX({
-  extension: /\.mdx?$/,
-  mdxOptions: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [['rehype-katex', { strict: true, throwOnError: true }]],
-  },
-});
+const withMDX = createMDX(});
 
 export default withMDX(nextConfig);
