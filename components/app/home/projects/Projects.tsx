@@ -1,9 +1,10 @@
 "use client";
 
-import { TrafficCone } from "lucide-react";
 import Image from "next/image";
+import { TrafficCone } from "lucide-react";
 import { ReactNode } from "react";
 import { SiJquery, SiReact } from "react-icons/si";
+import { useRouter } from 'next/navigation'
 
 interface ProjectType {
   title: string;
@@ -51,6 +52,7 @@ export function Projects() {
       link: "/projects/rona",
     },
   ];
+  const router = useRouter()
 
   return (
     <section className="mt-40 flex items-start gap-4 mb-[200px]">
@@ -59,7 +61,7 @@ export function Projects() {
           <TrafficCone size={24} />
         </div>
       </div>
-      <div className="flex flex-col gap-2 mt-2">
+      <div className="flex flex-col gap-2 mt-2 w-full">
         <div className="text-[16px] leading-[20px] tracking-[0px]">
           Projects
         </div>
@@ -67,37 +69,41 @@ export function Projects() {
           A few things I’ve built and worked on.
         </p>
 
-        <div className="mt-4 grid md:grid-cols-2 gap-5">
+        <div className="mt-4 flex flex-col gap-5 w-full">
           {projectData.map((project, index) => (
-            <div
-              key={index}
-              className="border rounded-lg overflow-hidden cursor-pointer"
-              onClick={() => window.location.assign(project.link)}
-            >
-              <div className="aspect-video relative">
-                <Image
-                  src={project.imgSrc}
-                  alt={project.title}
-                  layout="fill"
-                  className="object-cover"
-                />
-                <div className="absolute bottom-5 left-5 flex items-center gap-2">
-                  <div className="bg-black w-8 h-8 flex items-center justify-center text-white rounded-md">
-                    {project.icon}
+              <div
+                  key={index}
+                  className="border rounded-lg cursor-pointer flex flex-col md:flex-row w-full h-[120px]"
+                  onClick={() => router.push(project.link)}
+              >
+                {/* Image Section */}
+                <div className="hidden md:block relative  w-1/3 m-3">
+                  <Image
+                      src={project.imgSrc}
+                      alt={project.title}
+                      layout="fill"
+                      className="object-contain rounded-lg border"
+                  />
+                  <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                    <div className="bg-black w-8 h-8 flex items-center justify-center text-white rounded-md">
+                      {project.icon}
+                    </div>
                   </div>
                 </div>
+
+                {/* Content Section */}
+                <div className="p-4 flex flex-col gap-2 w-full justify-center">
+                  <h3 className="text-md font-semibold text-primary">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground line-clamp-2">
+                    {project.description}
+                  </p>
+                </div>
               </div>
-              <div className="mt-2 p-4 flex flex-col gap-2">
-                <h3 className="text-md font-semibold text-primary">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-muted-foreground line-clamp-2">
-                  {project.description}
-                </p>
-              </div>
-            </div>
           ))}
         </div>
+
       </div>
     </section>
   );
