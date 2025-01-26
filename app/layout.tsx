@@ -1,10 +1,9 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
+import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/app/dark-theme";
-import { Docks } from "@/components/app/home/Dock";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
+import localFont from "next/font/local";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -85,12 +84,11 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
           {children}
-          <Docks />
         </ThemeProvider>
       </body>
       <Analytics />
