@@ -12,7 +12,7 @@ export const NavLinks = () => {
         Github,
       </Link>
       <Link
-        href={"https://github.com/zecod"}
+        href={"https://it.linkedin.com/in/yasinel"}
         target="_blank"
         className="hover:text-primary transition-all"
       >
