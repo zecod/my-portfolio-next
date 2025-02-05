@@ -31,10 +31,10 @@ export default function Home() {
         </div>
         <Separator className="mt-20" />
         <div className="mt-20">
-          <div className="mt-10 text-[18px] leading-[20px] tracking-[0px]">
+          <div className="mt-10 text-[18px] leading-[20px] tracking-[0px] text-muted-foreground">
             About me:
           </div>
-          <div className="mt-2 text-[16.5px] leading-[27px] tracking-[0px] text-muted-foreground ">
+          <div className="mt-2 text-[16.5px] leading-[27px] tracking-[0px]">
             I’m from Italy, working on{" "}
             <span className="text-primary">front-end</span> and{" "}
             <span className="text-primary">back-end</span> projects. I enjoy
@@ -45,10 +45,10 @@ export default function Home() {
         </div>
         <Separator className="my-20" />
         <div>
-          <div className="mt-10 text-[18px] leading-[20px] tracking-[0px]">
+          <div className="mt-10 text-[18px] leading-[20px] tracking-[0px] text-muted-foreground">
             Tools I Use:
           </div>
-          <div className="mt-2 text-[16.5px] leading-[27px] tracking-[0px] text-muted-foreground ">
+          <div className="mt-2 text-[16.5px] leading-[27px] tracking-[0px]  ">
             I create things that are fast, reliable, and easy on the eyes. My
             focus is on keeping it simple, clean, and efficient—no extras, just
             solid code that works.
@@ -68,10 +68,10 @@ export default function Home() {
         </div>
         <Separator className="my-20" />
         <div className="mt-20">
-          <div className="mt-10 text-[18px] leading-[20px] tracking-[0px]">
+          <div className="mt-10 text-[18px] leading-[20px] tracking-[0px] text-muted-foreground">
             Where I’m Heading:
           </div>
-          <div className="mt-2 text-[16.5px] leading-[27px] tracking-[0px] text-muted-foreground ">
+          <div className="mt-2 text-[16.5px] leading-[27px] tracking-[0px]">
             Currently exploring the world of entrepreneurship with{" "}
             <span className="text-primary">Suonora</span>, an AI-powered
             text-to-speech platform.
